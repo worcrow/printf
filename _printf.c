@@ -22,13 +22,21 @@ int _printf(const char *format, ...)
 		temp = 0;
 		if (format[i] == '%')
 		{
-			temp = print_format(ap, format[i + 1]);
-			if (temp == -1)
-				count += print_char(format[i]);
+			if (format[i + 1] == '%')
+			{
+				count += print_char('%');
+				i++;
+			}
 			else
 			{
-				count += temp;
-				i++;
+				temp = print_format(ap, format[i + 1]);
+				if (temp == -1)
+					count += print_char(format[i]);
+				else
+				{
+					count += temp;
+					i++;
+				}
 			}
 		}
 		else

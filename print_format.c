@@ -29,6 +29,9 @@ int print_format(va_list ap, char specifiers)
 		case 'x':
 			count += print_number((unsigned int) va_arg(ap, int), 16);
 			break;
+		case 'b':
+			count += print_number((unsigned int) va_arg(ap, int), 2);
+			break;
 		default:
 			return (-1);
 	}

@@ -20,11 +20,16 @@ int print_char(int c)
 int print_string(char *s)
 {
 	int count;
+	char *temp;
 
+	if (s == NULL)
+		temp = "(null)";
+	else
+		temp = s;
 	count = 0;
-	while (s[count] != '\0')
+	while (temp[count] != '\0')
 	{
-		count += print_char(s[count]);
+		count += print_char(temp[count]);
 	}
 	return (count);
 }

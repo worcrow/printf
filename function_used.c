@@ -41,20 +41,24 @@ int print_string(char *s)
  * Return: numbers of bytes printed
 */
 
-int print_number(long number, int base)
+int print_number(long number, int base, int is_upper)
 {
-	char *symbol = "0123456789abcdef";
+	char *symbol;
 	int count;
 
+	if (is_upper)
+		symbol ="0123456789ABCDEF";
+	else
+		symbol = "0123456789abcdef";
 	if (number < 0)
 	{
 		print_char('-');
-		return (print_number(-number, base) + 1);
+		return (print_number(-number, base, is_upper) + 1);
 	}
 	else if (number < base)
 		return (print_char(symbol[number]));
 
-	count = print_number(number / base, base);
+	count = print_number(number / base, base, is_upper);
 	return (print_char(symbol[number % base]) + count);
 }
 

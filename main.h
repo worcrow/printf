@@ -5,7 +5,7 @@
 #include <stdlib.h>
 	int print_char(int c);
 	int print_string(char *s);
-	int print_number(long number, int base);
+	int print_number(long number, int base, int is_upper);
 	int print_format(va_list ap, char specifiers);
 	int _printf(const char *format, ...);
 #endif

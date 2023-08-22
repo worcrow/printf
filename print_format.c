@@ -21,16 +21,22 @@ int print_format(va_list ap, char specifiers)
 			break;
 		case 'i':
 		case 'd':
-			count += print_number(va_arg(ap, int), 10);
+			count += print_number(va_arg(ap, int), 10, 0);
 			break;
 		case 'o':
-			count += print_number((unsigned int) va_arg(ap, int), 8);
+			count += print_number((unsigned int) va_arg(ap, int), 8, 0);
 			break;
 		case 'x':
-			count += print_number((unsigned int) va_arg(ap, int), 16);
+			count += print_number((unsigned int) va_arg(ap, int), 16, 0);
 			break;
 		case 'b':
-			count += print_number((unsigned int) va_arg(ap, int), 2);
+			count += print_number((unsigned int) va_arg(ap, int), 2, 0);
+			break;
+		case 'u':
+			count += print_number((unsigned int) va_arg(ap, int), 10, 0);
+			break;
+		case 'X':
+			count += print_number((unsigned int) va_arg(ap, int), 16, 1);
 			break;
 		default:
 			return (-1);

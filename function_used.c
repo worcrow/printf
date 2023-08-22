@@ -21,15 +21,27 @@ int print_string(char *s)
 {
 	int count;
 	char *temp;
+	char c;
+	int ind;
 
 	if (s == NULL)
 		temp = "(null)";
 	else
 		temp = s;
 	count = 0;
-	while (temp[count] != '\0')
+	ind = 0;
+	while (temp[ind] != '\0')
 	{
-		count += print_char(temp[count]);
+		c = temp[ind];
+		if ((c > 0 && c < 32) || c >= 127)
+		{
+			print_char('\\');
+			print_char('x');
+			count += print_number(c, 16, 1) + 2;
+		}
+		else
+			count += print_char(c);
+		ind++;
 	}
 	return (count);
 }

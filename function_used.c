@@ -38,9 +38,10 @@ int print_string(char *s)
 			print_char('\\');
 			print_char('x');
 			if (c < 16)
-				print_number(0, 10, 0);
-			print_number(c, 16, 1);
-			count++;
+			{
+				count += print_number(0, 10, 0);
+			}
+			count += print_number(c, 16, 1) + 2;
 		}
 		else
 			count += print_char(c);

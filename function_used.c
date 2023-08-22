@@ -37,7 +37,9 @@ int print_string(char *s)
 		{
 			print_char('\\');
 			print_char('x');
-			print_number(c, 16, 1) + 2;
+			if (c < 16)
+				print_number(0, 10, 0);
+			print_number(c, 16, 1);
 			count++;
 		}
 		else
@@ -51,6 +53,7 @@ int print_string(char *s)
  * print_number - print a number based on their base
  * @number: number to be printed
  * @base: base to be printed in it
+ * @is_upper: print in upper hex
  * Return: numbers of bytes printed
 */
 
@@ -60,7 +63,7 @@ int print_number(long number, int base, int is_upper)
 	int count;
 
 	if (is_upper)
-		symbol ="0123456789ABCDEF";
+		symbol = "0123456789ABCDEF";
 	else
 		symbol = "0123456789abcdef";
 	if (number < 0)

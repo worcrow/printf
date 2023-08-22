@@ -37,7 +37,8 @@ int print_string(char *s)
 		{
 			print_char('\\');
 			print_char('x');
-			count += print_number(c, 16, 1) + 2;
+			print_number(c, 16, 1) + 2;
+			count++;
 		}
 		else
 			count += print_char(c);

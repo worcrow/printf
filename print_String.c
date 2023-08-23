@@ -16,7 +16,7 @@ int print_String(char *str)
 	count = 0;
 	ind = 0;
 	temp = (str == NULL) ? "(null)" : str;
-	while (temp[ind])
+	while (temp[ind] != '\0')
 	{
 		c = temp[ind++];
 		if ((c > 0 && c < 32) || c >= 127)

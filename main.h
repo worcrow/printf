@@ -8,4 +8,5 @@
 	int print_number(long number, int base, int is_upper);
 	int print_format(va_list ap, char specifiers);
 	int _printf(const char *format, ...);
+	int print_String(char *str);
 #endif

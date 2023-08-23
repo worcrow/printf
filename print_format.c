@@ -38,6 +38,9 @@ int print_format(va_list ap, char specifiers)
 		case 'X':
 			count += print_number((unsigned int) va_arg(ap, int), 16, 1);
 			break;
+		case 'S':
+			count += print_String(va_arg(ap, char *));
+			break;
 		default:
 			return (-1);
 	}

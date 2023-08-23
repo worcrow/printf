@@ -24,7 +24,7 @@ int print_String(char *str)
 			print_char('\\');
 			print_char('x');
 			if (c < 16)
-				print_number(0, 10, 0);
+				count += print_number(0, 10, 0);
 			count += print_number(c, 16, 1);
 		}
 		else

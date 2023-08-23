@@ -21,8 +21,7 @@ int print_String(char *str)
 		c = temp[ind++];
 		if ((c > 0 && c < 32) || c >= 127)
 		{
-			print_char('\\');
-			print_char('x');
+			count += print_string("\\x");
 			if (c < 16)
 				count += print_number(0, 10, 0);
 			count += print_number(c, 16, 1) + 2;

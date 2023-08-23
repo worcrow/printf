@@ -21,10 +21,11 @@ int print_String(char *str)
 		c = temp[ind++];
 		if ((c > 0 && c < 32) || c >= 127)
 		{
-			count += print_string("\\x");
+			print_string("\\x");
 			if (c < 16)
-				count += print_number(0, 10, 0);
-			count += print_number(c, 16, 1) + 2;
+				print_number(0, 10, 0);
+			print_number(c, 16, 1);
+			count++;
 		}
 		else
 			count += print_char(c);

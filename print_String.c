@@ -25,7 +25,7 @@ int print_String(char *str)
 			print_char('x');
 			if (c < 16)
 				count += print_number(0, 10, 0);
-			count += print_number(c, 16, 1);
+			count += print_number(c, 16, 1) + 2;
 		}
 		else
 			count += print_char(c);
